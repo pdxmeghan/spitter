@@ -19,4 +19,12 @@ class User < ActiveRecord::Base
   def send_welcome_message
     UserMailer.signup_confirmation(self).deliver
   end
+
+  def following_spits
+    @following_spits = []
+    self.following.each do |f|
+      @following_spits << Spit.where(:user_id => f.user_id)
+    end
+    return @following_spits
+  end
 end

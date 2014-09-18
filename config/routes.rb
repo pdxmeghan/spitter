@@ -8,4 +8,6 @@ Rails.application.routes.draw do
 
   resources :users
   resources :sessions
+  resources :spits
+  resources :follows
 end

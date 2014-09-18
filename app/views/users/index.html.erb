@@ -1,0 +1,19 @@
+<h1>Welcome <%= @user.user_name %></h1>
+
+<% if @spits_new %>
+  <% @spits_new.each do |spit| %>
+    <%= spit.text %>
+    <%= spit.created_at %>
+    <br />
+  <% end %>
+<% end %>
+
+<%= link_to "Spit a new spit", new_spit_path, :remote => true, :id => "new_spit" %>
+
+
+<div id = "my_spits">
+  <ul>
+  <p>my spits</p>
+  <p></p>
+</ul>
+</div>

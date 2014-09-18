@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+  def index
+    @user = current_user
+    @spits_new = @user.following_spits.first
+    @spit = Spit.new
+  end
+
   def new
     @user = User.new
   end
@@ -7,7 +13,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_url, notice: "Thanks for signing up!"
+      redirect_to user_path(@user), notice: "Thanks for signing up!"
     else
       render 'new'
     end
