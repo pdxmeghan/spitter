@@ -10,8 +10,11 @@ class User < ActiveRecord::Base
   validates_length_of :user_name, :maximum => 15
 
   has_secure_password
-  before_save { |user| user.user_name = user.user_name.downcase }
   after_save :send_welcome_message
+
+  has_many :followers, :class_name => 'Follow', :foreign_key => 'user_id'
+  has_many :following, :class_name => 'Follow', :foreign_key => 'follower_id'
+  has_many :spits, :dependent => :destroy
 
   def send_welcome_message
     UserMailer.signup_confirmation(self).deliver

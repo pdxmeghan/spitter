@@ -1,0 +1,8 @@
+<h2><%= @user.user_name %>'s Spits</h2>
+
+<% @spits.each do |s| %>
+  <h5><%= s.text %></h5>
+  <p><%= s.created_at %></p>
+  <br />
+<% end %>
+

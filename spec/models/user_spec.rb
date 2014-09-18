@@ -18,4 +18,9 @@ describe User do
     user2 = User.new(:user_name => 'Meghan', :email => 'josie@gmail.com', :password => '123', :password_confirmation => '123')
     expect(user2.save).to eq false
   end
+
+  it { should have_many :followers }
+  it { should have_many :following }
+  it { should have_many :spits }
+
 end
