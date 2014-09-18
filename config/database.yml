@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: spitter_development
+
+test:
+  adapter: postgresql
+  database: spitter_test
