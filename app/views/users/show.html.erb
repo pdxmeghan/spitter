@@ -1,5 +1,17 @@
 <h2><%= @user.user_name %>'s Spits</h2>
 
+<% if current_user && current_user.id != @user.id %>
+  <% if @verify == nil %>
+    <%= form_for [@user, @follow] do |f| %>
+      <%= f.hidden_field :user_id, :value => @user.id %>
+      <%= f.hidden_field :follower_id, :value => current_user.id %>
+      <%= f.submit "Follow #{@user.user_name}" %>
+    <% end %>
+  <% else %>
+    <%= link_to "Unfollow", user_follow_path(@user, @verify), :data => {:confirm => "Really?", :method => "delete"} %>
+  <% end %>
+<% end %>
+
 <% @spits.each do |s| %>
   <h5><%= s.text %></h5>
   <p><%= s.created_at %></p>

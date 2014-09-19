@@ -12,8 +12,8 @@ class User < ActiveRecord::Base
   has_secure_password
   after_save :send_welcome_message
 
-  has_many :followers, :class_name => 'Follow', :foreign_key => 'user_id'
-  has_many :following, :class_name => 'Follow', :foreign_key => 'follower_id'
+  has_many :followers, :class_name => 'Follow', :foreign_key => 'user_id', :dependent => :destroy
+  has_many :following, :class_name => 'Follow', :foreign_key => 'follower_id', :dependent => :destroy
   has_many :spits, :dependent => :destroy
   after_save :follow_thyself
 
