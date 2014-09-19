@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   has_many :followers, :class_name => 'Follow', :foreign_key => 'user_id'
   has_many :following, :class_name => 'Follow', :foreign_key => 'follower_id'
   has_many :spits, :dependent => :destroy
+  after_save :follow_thyself
 
   def send_welcome_message
     UserMailer.signup_confirmation(self).deliver
@@ -26,5 +27,9 @@ class User < ActiveRecord::Base
       @following_spits << Spit.where(:user_id => f.user_id)
     end
     return @following_spits
+  end
+
+  def follow_thyself
+    Follow.create(:user_id => self.id, :follower_id => self.id)
   end
 end

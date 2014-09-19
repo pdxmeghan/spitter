@@ -1,5 +1,5 @@
-$("#new_spit").show();
-$("#new_spit_form").hide();
-$("#my_spits ul").show()
-$("#my_spits ul").append("<%= j render(@spit) %>");
+$("#spits_list").append("<%= j render(@spit) %>");
+$("#new_spit_link").show();
+$("#new_spit").hide();
+$("#my_spits").show();
 
