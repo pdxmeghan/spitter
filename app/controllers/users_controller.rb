@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
     @user = current_user
-    @spits_new = @user.following_spits.first
+    @spits_collection = @user.following_spits.order(created_at: :desc)
     @spit = Spit.new
   end
 
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @verify = Follow.find_by(:user_id => @user.id, :follower_id => current_user.id)
-    @spits = @user.spits
+    @spits = @user.spits.order(:created_at => :desc)
     @follow = Follow.new
   end
 

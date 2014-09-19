@@ -7,4 +7,7 @@ class Spit < ActiveRecord::Base
 
   belongs_to :user, :dependent => :destroy
 
+  def date_string
+    self.created_at.strftime("%m-%d-%Y %I:%M")
+  end
 end

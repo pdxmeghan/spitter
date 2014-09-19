@@ -15,18 +15,12 @@ class User < ActiveRecord::Base
   has_many :followers, :class_name => 'Follow', :foreign_key => 'user_id', :dependent => :destroy
   has_many :following, :class_name => 'Follow', :foreign_key => 'follower_id', :dependent => :destroy
   has_many :spits, :dependent => :destroy
+  has_many :followed_users, through: :following, source: :user
+  has_many :following_spits, through: :followed_users, source: :spits
   after_save :follow_thyself
 
   def send_welcome_message
     UserMailer.signup_confirmation(self).deliver
-  end
-
-  def following_spits
-    @following_spits = []
-    self.following.each do |f|
-      @following_spits << Spit.where(:user_id => f.user_id)
-    end
-    return @following_spits
   end
 
   def follow_thyself
