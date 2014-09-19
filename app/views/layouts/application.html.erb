@@ -11,7 +11,10 @@
 
 <% if request.url != root_url %>
   <% if current_user %>
-    Logged in as <%= current_user.email %>.
+    <% unless request.url == users_path %>
+      <%= link_to "Home", users_path %>
+    <% end %>
+    <span class='white'><%= current_user.email %></span>
     <%= link_to "Log Out", logout_path %>
   <% else %>
     <%= link_to "Sign Up", signup_path %> or

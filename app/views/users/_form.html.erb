@@ -1,8 +1,9 @@
-<%= form_for @spit, remote: true, id: "new_spit" do |f| %>
-  <div class="form-group">
-    <%= f.label :text %>
-    <%= f.text_field :text %>
-  </div>
-  <%= f.hidden_field :user_id, :value => current_user.id %>
-  <%= f.submit "Create the SPIT", :class => "btn btn-primary" %>
-<% end %>
+  <%= form_for @spit, remote: true, id: "new_spit" do |f| %>
+    <div class="form-group">
+      <%= f.label :text %>
+      <%= f.text_field :text, class: 'form-control' %>
+    </div>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.submit "Create the SPIT", :class => "btn btn-primary" %>
+  <% end %>
+

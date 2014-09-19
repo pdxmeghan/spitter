@@ -1,4 +1,4 @@
-<h2><%= @user.user_name %>'s Spits</h2>
+<h1 class='white'>Spitter</h1>
 
 <% if current_user && current_user.id != @user.id %>
   <% if @verify == nil %>
@@ -13,8 +13,9 @@
 <% end %>
 
 <% @spits.each do |s| %>
-  <h5><%= s.text %></h5>
-  <p><%= s.created_at %></p>
-  <br />
+  <div class="panel panel-default">
+    <div class="panel-body"><b>@<%= s.user.user_name %></b><br><%= s.text %></div>
+    <div class="panel-footer"><%= s.created_at %></div>
+  </div>
 <% end %>
 
