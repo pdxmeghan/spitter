@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class='container'>
 
 <% if request.url != root_url %>
   <% if current_user %>
@@ -22,6 +23,7 @@
 
 <%= flash[:notice] %>
   <%= yield %>
+</div>
 
 </body>
 </html>
