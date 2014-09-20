@@ -1,28 +1,45 @@
-== README
+#Spitter?
+This site replicates the basic functionality of Twitter.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##Tools
+Ruby 2.1.2<br />
+ActiveRecord<br />
+Rails 4.1.6<br />
+PostgreSQL<br />
 
-Things you may want to cover:
+##Setup
+In your terminal, clone this repository:
 
-* Ruby version
+```console
+$ git clone https://github.com/pdxmeghan/spitter.git
+```
 
-* System dependencies
+Make sure you've installed [PostgreSQL](http://www.postgresql.org/download/).
 
-* Configuration
+Install all the dependencies:
 
-* Database creation
+```console
+$ bundle install
+```
 
-* Database initialization
+Set up the databases on your local machine:
 
-* How to run the test suite
+```console
+$ rake db:create
+$ rake db:schema:load
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Start the rails server:
 
-* Deployment instructions
+```console
+$ rails s
+```
+Now, it will be available at `http://localhost:3000`.
 
-* ...
+RSpec and Capybara tests can be run in the terminal root:
+```console
+$ rspec
+```
 
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+##License
+MIT
