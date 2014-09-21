@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-2"></div>
   <div class="col-md-8">
-  <h1 class='white'>Spitter</h1>
+  <h1 class='white'>@<%= current_user.user_name %></h1>
 
   <% if current_user && current_user.id != @user.id %>
     <% if @verify == nil %>
@@ -18,7 +18,7 @@
   <% @spits.each do |s| %>
     <div class="panel panel-default">
       <div class="panel-body"><b>@<%= s.user.user_name %></b><br><%= s.text %></div>
-      <div class="panel-footer"><%= s.created_at %></div>
+      <div class="panel-footer"><%= s.date_string %></div>
     </div>
   <% end %>
   </div>
