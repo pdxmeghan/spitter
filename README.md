@@ -10,36 +10,32 @@ PostgreSQL<br />
 ##Setup
 In your terminal, clone this repository:
 
-'''console
-$ git clone https://github.com/pdxmeghan/spitter.git
-'''
+	$ git clone https://github.com/pdxmeghan/spitter.git
+
 
 Make sure you've installed [PostgreSQL](http://www.postgresql.org/download/).
 
 Install all the dependencies:
 
-'''console
-$ bundle install
-'''
+
+	$ bundle install
+
 
 Set up the databases on your local machine:
 
-'''console
-$ rake db:create
-$ rake db:schema:load
-'''
+	$ rake db:create
+	$ rake db:schema:load
+
 
 Start the rails server:
 
-'console
-$ rails s
-'
+	$ rails s
+
 Now, it will be available at `http://localhost:3000`.
 
 RSpec and Capybara tests can be run in the terminal root:
-'''console
-$ rspec
-'''
+
+	$ rspec
 
 ##License
 MIT
