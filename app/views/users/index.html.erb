@@ -3,6 +3,7 @@
   <div class="col-md-8">
   <h1 class='white'>Spitter</h1>
 
+<div id="spits_collection">
   <% if @spits_collection %>
     <% @spits_collection.each do |spit| %>
         <div class="panel panel-default">
@@ -11,6 +12,7 @@
         </div>
     <% end %>
   <% end %>
+</div>
 
   <%= link_to "Spit a new spit", new_spit_path, :remote => true, :id => "new_spit_link" %>
   </div>
