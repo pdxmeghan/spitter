@@ -31,9 +31,9 @@ $ rake db:schema:load
 
 Start the rails server:
 
-'''console
+'console
 $ rails s
-'''
+'
 Now, it will be available at `http://localhost:3000`.
 
 RSpec and Capybara tests can be run in the terminal root:
