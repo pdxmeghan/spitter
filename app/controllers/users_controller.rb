@@ -26,6 +26,24 @@ class UsersController < ApplicationController
     @follow = Follow.new
   end
 
+  def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    if @user.valid?
+      flash[:notice] = "#{@user.user_name} has been updated"
+      redirect_to user_path(@user)
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:notice] = "#{@user.user_name} has been deleted"
+    redirect_to root_url
+  end
+
 private
   def user_params
     params.require(:user).permit(:email, :user_name, :password, :password_confirmation)
