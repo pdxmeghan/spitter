@@ -1,20 +1,20 @@
 <div class="row">
   <div class="col-md-2"></div>
   <div class="col-md-8">
-  <h1 class='white'>@<%= current_user.user_name %></h1>
+  <h1 class='white'>@<%= @user.user_name %></h1>
 
   <% if current_user && current_user.id != @user.id %>
     <% if @verify == nil %>
       <%= form_for [@user, @follow] do |f| %>
         <%= f.hidden_field :user_id, :value => @user.id %>
         <%= f.hidden_field :follower_id, :value => current_user.id %>
-        <%= f.submit "Follow #{@user.user_name}" %>
+        <%= f.submit "Follow #{@user.user_name}", :class => "btn btn-default btn-xs" %>
       <% end %>
     <% else %>
-      <%= link_to "Unfollow", user_follow_path(@user, @verify), :data => {:confirm => "Really?", :method => "delete"} %>
+      <%= link_to "Unfollow", user_follow_path(@user, @verify), :class => "btn btn-default btn-xs", :data => {:confirm => "Really?", :method => "delete"} %>
     <% end %>
   <% end %>
-
+  <br><br>
   <% @spits.each do |s| %>
     <div class="panel panel-default">
       <div class="panel-body"><b>@<%= s.user.user_name %></b><br><%= s.text %></div>

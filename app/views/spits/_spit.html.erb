@@ -1,1 +1,4 @@
-<li><%= spit.text %></li>
+<div class="panel panel-default">
+  <div class="panel-body"><b><%= link_to "@#{spit.user.user_name}", user_path(spit.user) %></b><br /><%= spit.text %></div>
+  <div class="panel-footer"><%= spit.date_string %></div>
+</div>

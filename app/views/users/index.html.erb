@@ -5,12 +5,7 @@
 
 <div id="spits_collection">
   <% if @spits_collection %>
-    <% @spits_collection.each do |spit| %>
-        <div class="panel panel-default">
-          <div class="panel-body"><b><%= link_to "@#{spit.user.user_name}", user_path(spit.user) %></b><br /><%= spit.text %></div>
-          <div class="panel-footer"><%= spit.date_string %></div>
-        </div>
-    <% end %>
+    <%= render(@spits_collection) %>
   <% end %>
 </div>
 
