@@ -4,7 +4,7 @@
 <span class="white">
 <h1><%= current_user.user_name %></h1>
 
-<%= form_for current_user do |f| %>
+<%= form_for @user do |f| %>
   <div class="field">
     <%= f.label :user_name %><br />
     <%= f.text_field :user_name, class: 'form-control' %>
@@ -23,10 +23,10 @@
   </div>
   <br>
 </span>
-  <div class="actions"><%= f.submit "Edit", class: "btn btn-info"%> or <%= link_to "Delete", user_path(current_user), :data => {:confirm => "Are you sure?", :method => "delete"}, class:  "btn btn-info"%></div>
+  <div class="actions"><%= f.submit "Edit", class: "btn btn-info"%> or <%= link_to "Delete", user_path(@user), :data => {:confirm => "Are you sure?", :method => "delete"}, class:  "btn btn-info"%></div>
 <% end %>
 
-<%= render('layouts/errors', :object => current_user) %>
+<%= render('layouts/errors', :object => @user) %>
 </div>
 <div class="col-md-4"></div>
 </div>

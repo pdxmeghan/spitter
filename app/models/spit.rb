@@ -5,7 +5,7 @@ class Spit < ActiveRecord::Base
 
   validates_length_of :text, :maximum => 140
 
-  belongs_to :user, :dependent => :destroy
+  belongs_to :user
 
   def date_string
     self.created_at.strftime("%m-%d-%Y %I:%M")
