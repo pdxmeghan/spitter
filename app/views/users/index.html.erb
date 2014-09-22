@@ -1,13 +1,16 @@
 <div class="row">
-  <div class="col-md-2"></div>
+  <div class="col-md-1", id="user_list">
+    <%= render(@users) %>
+  </div>
+  <div class= "col-md-1"></div>
   <div class="col-md-8">
-  <h1 class='white'>Spits</h1>
+    <h1 class='white'>Spits</h1>
 
-<div id="spits_collection">
-  <% if @spits_collection %>
-    <%= render(@spits_collection) %>
-  <% end %>
-</div>
+    <div id="spits_collection">
+    <% if @spits_collection %>
+      <%= render(@spits_collection) %>
+    <% end %>
+    </div>
 
   <%= link_to "Spit a new spit", new_spit_path, :remote => true, :id => "new_spit_link" %>
   </div>
