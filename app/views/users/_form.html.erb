@@ -3,6 +3,6 @@
       <%= f.text_field :text, class: 'form-control', placeholder: "what's the beat?" %>
     </div>
     <%= f.hidden_field :user_id, :value => current_user.id %>
-    <b><%= f.submit "spit", :class => "btn btn-primary" %></b>
+    <%= f.submit "spit", :class => "btn btn-primary" %>
   <% end %>
 

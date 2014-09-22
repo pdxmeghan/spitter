@@ -3,16 +3,16 @@
     <%= render(@users) %>
   </div>
   <div class= "col-md-1"></div>
-  <div class="col-md-8">
+  <div class="col-md-7">
     <h1 class='white'>Spits</h1>
-
     <div id="spits_collection">
     <% if @spits_collection %>
       <%= render(@spits_collection) %>
     <% end %>
     </div>
-
-  <%= link_to "Spit a new spit", new_spit_path, :remote => true, :id => "new_spit_link" %>
   </div>
-  <div class="col-md-2"></div>
+  <div class="col-md-2", id="spit_link">
+      <%= link_to "Spit a new spit", new_spit_path, :remote => true, :id => "new_spit_link",:class => "btn btn-primary" %>
+  </div>
+  <div class="col-md-1"></div>
 </div>
