@@ -22,5 +22,6 @@ describe User do
   it { should have_many :followers }
   it { should have_many :following }
   it { should have_many :spits }
+  it { should have_many :digs }
 
 end
